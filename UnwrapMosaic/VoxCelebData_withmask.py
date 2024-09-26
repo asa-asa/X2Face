@@ -23,9 +23,13 @@ class VoxCeleb(data.Dataset):
                 self.rng = np.random.RandomState(random_seed)
 
                 # Update the npz files with the name that you downloaded it to from the website
-                assert(os.path.exists('/scratch/local/ssd/ow/faces/datasets/voxceleb/landmarks_samevideoimg_%d25thframe_5imgs_%d.npz' % (dataset, num_views)))
+#                 assert(os.path.exists('/scratch/local/ssd/ow/faces/datasets/voxceleb/landmarks_samevideoimg_%d25thframe_5imgs_%d.npz' % (dataset, num_views)))
 
-                files = np.load('/scratch/local/ssd/ow/faces/datasets/voxceleb/landmarks_samevideoimg_%d25thframe_5imgs_%d.npz' % (dataset, num_views))
+#                 files = np.load('/scratch/local/ssd/ow/faces/datasets/voxceleb/landmarks_samevideoimg_%d25thframe_5imgs_%d.npz' % (dataset, num_views))
+                assert(os.path.exists('/kaggle/input/trainfiles/files/landmarks_samevideoimg_%d25thframe_5imgs_%d.npz' % (dataset, num_views)))
+
+                files = np.load('/kaggle/input/trainfiles/files/landmarks_samevideoimg_%d25thframe_5imgs_%d.npz' % (dataset, num_views))                
+                
                 self.image_names = files['image_names']
                 self.input_indices = files['input_indices']
                 self.landmarks = files['landmarks']
